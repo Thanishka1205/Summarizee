@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Summarizzzz</h1>
+        <a href="#">Home</a>
+    </header>
+    
+    <div class="form-container">
+        <h2>Enter Text or Upload a File</h2>
+        <form action="{{ url_for('summarize_content') }}" method="POST" enctype="multipart/form-data">
+            <label for="text">Paste your text:</label>
+            <textarea name="text" id="text" rows="6" placeholder="Paste your text here..."></textarea>
+
+            <label for="file">Or upload a file (Text, Video, or Image):</label>
+            <input type="file" name="file" id="file">
+
+            <button type="submit">Summarize</button>
+        </form>
+    </div>
+</body>
+</html>

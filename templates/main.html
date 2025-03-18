@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarizzzz - Main Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <span class="brand">Summarizzzz</span>
+            <a href="/" class="home-btn">Home</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Text Summarization & Text Extraction</h1>
+        <form action="/main" method="POST" enctype="multipart/form-data">
+            <label for="textInput">Enter Text to Summarize:</label>
+            <textarea autocomplete="off" id="textInput" name="text_input" rows="6" cols="50" placeholder="Enter text here..."></textarea>
+        
+            <label for="urlInput">Or, enter a URL to Summarize:</label>
+            <input autocomplete="off" type="text" id="urlInput" name="url" placeholder="Enter URL here..." />
+        
+            <label for="fileInput">Upload an image or video to extract text:</label>
+            <input autocomplete="off" type="file" id="fileInput" name="file" accept=".jpg,.jpeg,.png,.gif,.mp4,.avi,.mov" multiple />
+        
+            <button type="submit" class="summarize-btn">Summarize or Extract Text</button>
+        </form>
+        
+
+        {% if result %}
+        <h2>Result:</h2>
+        <p>{{ result }}</p>
+        {% endif %}
+    </main>
+</body>
+</html>

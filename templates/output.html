@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarized Content</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <h1>Summarized Content</h1>
+    
+    <h3>Original Content:</h3>
+    <p>{{ result }}</p>
+    
+    <h3>Emotion Words Found:</h3>
+    <ul>
+        {% for word in emotion_words %}
+            <li>{{ word }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>CFG Tree for a Random Sentence:</h3>
+    <pre>{{ random_cfg_tree }}</pre>
+    
+    <a href="{{ url_for('summarize_content') }}">Back</a>
+</body>
+</html>

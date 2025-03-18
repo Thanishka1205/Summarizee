@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarizzzz - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/styles/main.css') }}">
+    <style>
+        .text-highlight {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .result-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <span class="brand">Summarizzzz</span>
+            <a href="/" class="home-btn">Home</a>
+        </div>
+    </header>
+
+    <main class="result-container">
+        <h1>Text Extraction & Summarization Result</h1>
+
+        {% if result %}
+            <div class="text-highlight">
+                <p>{{ result }}</p>
+            </div>
+        {% else %}
+            <p>No result available. Please provide text or upload an image to extract text.</p>
+        {% endif %}
+    </main>
+
+</body>
+</html>
